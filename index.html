@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SubTrack – Subscription Manager</title>
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <!-- App Icons for Apple devices -->
+    <link rel="apple-touch-icon" href="icons/subscription_icon_192.png">
+    <meta name="theme-color" content="#3f51b5">
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="app-header">
+        <img src="icons/subscription_icon_192.png" alt="App icon" class="app-logo">
+        <h1>SubTrack</h1>
+    </header>
+    <main class="container">
+        <!-- Form to add new subscription -->
+        <section class="form-section">
+            <h2>Add New Subscription</h2>
+            <form id="subscriptionForm">
+                <div class="form-row">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" required placeholder="e.g. Netflix">
+                </div>
+                <div class="form-row">
+                    <label for="category">Category</label>
+                    <select id="category">
+                        <option value="Streaming">Streaming</option>
+                        <option value="Music">Music</option>
+                        <option value="Utilities">Utilities</option>
+                        <option value="Productivity">Productivity</option>
+                        <option value="Fitness">Fitness</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="cost">Cost (USD)</label>
+                    <input type="number" id="cost" step="0.01" min="0" required placeholder="e.g. 12.99">
+                </div>
+                <div class="form-row">
+                    <label for="frequency">Billing Frequency</label>
+                    <select id="frequency">
+                        <option value="monthly">Monthly</option>
+                        <option value="yearly">Yearly</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="daily">Daily</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="nextDate">Next Payment Date</label>
+                    <input type="date" id="nextDate" required>
+                </div>
+                <div class="form-row">
+                    <label for="notes">Notes (optional)</label>
+                    <textarea id="notes" rows="2" placeholder="Any additional info"></textarea>
+                </div>
+                <button type="submit" class="btn">Add Subscription</button>
+            </form>
+        </section>
+        <!-- Summary Section -->
+        <section class="summary-section">
+            <h2>Summary</h2>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <h3>Total Subscriptions</h3>
+                    <p id="totalCount">0</p>
+                </div>
+                <div class="summary-item">
+                    <h3>Monthly Cost</h3>
+                    <p id="totalMonthly">$0.00</p>
+                </div>
+                <div class="summary-item">
+                    <h3>Yearly Cost</h3>
+                    <p id="totalYearly">$0.00</p>
+                </div>
+            </div>
+        </section>
+        <!-- Subscription List -->
+        <section class="list-section">
+            <h2>Active Subscriptions</h2>
+            <div class="table-responsive">
+                <table id="subscriptionTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Cost</th>
+                            <th>Frequency</th>
+                            <th>Next Payment</th>
+                            <th>Cost / Month</th>
+                            <th>Days Left</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rows will be injected dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <footer class="app-footer">
+        <p>SubTrack &copy; 2025. Manage your subscriptions and budget smarter.</p>
+    </footer>
+    <script src="app.js"></script>
+    <script>
+      // Register service worker for PWA
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('service-worker.js').catch(function(error) {
+            console.error('Service worker registration failed:', error);
+          });
+        });
+      }
+    </script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+/* Basic styling for SubTrack app */
+
+:root {
+    --primary-color: #3f51b5;
+    --secondary-color: #f5f5f5;
+    --accent-color: #ff6f61;
+    --text-color: #333;
+    --background-color: #ffffff;
+    --header-height: 70px;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.app-logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 8px;
+}
+
+.app-header h1 {
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+.container {
+    flex: 1;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h2 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+/* Form styles */
+.form-section {
+    background-color: var(--secondary-color);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.form-row label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.btn {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: #303f9f;
+}
+
+/* Summary grid */
+.summary-section {
+    background-color: var(--secondary-color);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.summary-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.summary-item {
+    flex: 1 1 200px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.summary-item h3 {
+    margin: 5px 0;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+}
+
+.summary-item p {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+/* Table styles */
+.table-responsive {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.due-soon {
+    background-color: #ffecb3; /* light yellow */
+}
+
+.expired {
+    background-color: #ffcccb; /* light red */
+}
+
+.action-btn {
+    padding: 5px 10px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.action-delete {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.action-delete:hover {
+    background-color: #e55b52;
+}
+
+.action-edit {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.action-edit:hover {
+    background-color: #388e3c;
+}
+
+.app-footer {
+    padding: 10px;
+    text-align: center;
+    background-color: var(--secondary-color);
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .summary-grid {
+        flex-direction: column;
+    }
+    th, td {
+        font-size: 0.85rem;
+    }
+    .btn {
+        width: 100%;
+    }
+}
